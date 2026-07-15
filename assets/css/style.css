@@ -1,0 +1,416 @@
+/* ===========================================================
+   VIDURA Activity Clubs
+   Main Stylesheet
+   =========================================================== */
+
+:root{
+
+    --primary:#005B96;
+    --secondary:#0D6EFD;
+    --accent:#FF6B00;
+    --gold:#FFC107;
+
+    --dark:#1E293B;
+    --text:#374151;
+    --light:#6B7280;
+
+    --background:#F8FAFC;
+    --white:#FFFFFF;
+
+    --border:#E5E7EB;
+
+    --radius:18px;
+
+    --shadow-sm:0 5px 15px rgba(0,0,0,.05);
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+    --shadow-lg:0 20px 45px rgba(0,0,0,.12);
+
+    --transition:.3s ease;
+
+}
+
+/* ========================= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:var(--background);
+    color:var(--text);
+    overflow-x:hidden;
+
+}
+
+/* ========================= */
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+section{
+
+    padding:90px 0;
+
+}
+
+/* ========================= */
+
+.container-custom{
+
+    width:min(1200px,92%);
+    margin:auto;
+
+}
+
+/* ========================= */
+
+.section-title{
+
+    color:var(--primary);
+    font-weight:700;
+    font-size:2.5rem;
+
+}
+
+.section-subtitle{
+
+    color:var(--light);
+    margin-top:12px;
+    font-size:1.05rem;
+
+}
+
+/* ========================= */
+
+.btn-primary-custom{
+
+    background:var(--primary);
+    color:#fff;
+
+    padding:14px 34px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-sm);
+
+    display:inline-block;
+
+}
+
+.btn-primary-custom:hover{
+
+    transform:translateY(-4px);
+
+    color:#fff;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ========================= */
+
+.btn-outline-custom{
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    padding:14px 34px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+    display:inline-block;
+
+}
+
+.btn-outline-custom:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ========================= */
+
+.card-custom{
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.card-custom:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ========================= */
+
+.navbar-custom{
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(0,0,0,.05);
+
+    transition:.35s;
+
+}
+
+.nav-link{
+
+    font-weight:500;
+
+    color:var(--dark)!important;
+
+    margin-left:10px;
+
+    transition:.25s;
+
+}
+
+.nav-link:hover{
+
+    color:var(--primary)!important;
+
+}
+
+/* ========================= */
+
+.hero{
+
+    min-height:88vh;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top left,#DDEFFF 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#FFF4DD 0%,transparent 40%),
+    white;
+
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    color:var(--primary);
+
+}
+
+.hero h2{
+
+    font-size:1.7rem;
+
+    color:var(--accent);
+
+    margin-bottom:15px;
+
+}
+
+.hero p{
+
+    font-size:1.15rem;
+
+    color:var(--light);
+
+    line-height:1.9;
+
+}
+
+/* ========================= */
+
+.stats{
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.stat-item{
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+.stat-item h2{
+
+    color:var(--primary);
+
+    font-size:2.5rem;
+
+    font-weight:700;
+
+}
+
+.stat-item p{
+
+    color:var(--light);
+
+}
+
+/* ========================= */
+
+footer{
+
+    background:#001F3F;
+
+    color:white;
+
+    padding:70px 0 30px;
+
+}
+
+footer a{
+
+    color:#ddd;
+
+}
+
+footer a:hover{
+
+    color:white;
+
+}
+
+/* ========================= */
+
+.fade-up{
+
+    animation:fadeUp .8s ease forwards;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ========================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EEF2F7;
+
+}
+
+/* ========================= */
+
+@media(max-width:992px){
+
+.hero h1{
+
+font-size:2.8rem;
+
+}
+
+.hero{
+
+text-align:center;
+
+}
+
+section{
+
+padding:70px 0;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.hero h1{
+
+font-size:2.2rem;
+
+}
+
+.section-title{
+
+font-size:2rem;
+
+}
+
+}

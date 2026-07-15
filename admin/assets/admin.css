@@ -1,0 +1,171 @@
+:root{
+    --sidebar:#0F172A;
+    --sidebar-hover:#1E293B;
+    --primary:#2563EB;
+    --success:#16A34A;
+    --warning:#F59E0B;
+    --danger:#DC2626;
+    --bg:#F5F7FB;
+    --card:#FFFFFF;
+    --text:#1E293B;
+    --light:#64748B;
+    --border:#E2E8F0;
+    --radius:18px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.sidebar{
+    position:fixed;
+    width:260px;
+    height:100vh;
+    left:0;
+    top:0;
+    background:var(--sidebar);
+    color:white;
+    overflow-y:auto;
+    z-index:999;
+}
+
+.sidebar-header{
+    padding:28px;
+    font-size:26px;
+    font-weight:700;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.sidebar-menu{
+    padding:18px;
+}
+
+.sidebar-menu a{
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    color:#CBD5E1;
+
+    text-decoration:none;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    margin-bottom:8px;
+
+    transition:.25s;
+
+}
+
+.sidebar-menu a:hover{
+
+    background:var(--sidebar-hover);
+
+    color:white;
+
+    transform:translateX(6px);
+
+}
+
+.sidebar-menu a.active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.main{
+
+    margin-left:260px;
+
+}
+
+.topbar{
+
+    height:78px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.05);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+.content{
+
+    padding:35px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:28px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+    border-left:5px solid var(--primary);
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.stat-card h2{
+
+    font-weight:700;
+
+    margin-top:12px;
+
+}
+
+.card-admin{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+}
+
+.table{
+
+    margin-bottom:0;
+
+}
