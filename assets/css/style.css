@@ -669,6 +669,10 @@ small{
     align-items:start;
 }
 
+.member-content{
+    min-width:0;
+}
+
 .member-sidebar{
     position:sticky;
     top:96px;
