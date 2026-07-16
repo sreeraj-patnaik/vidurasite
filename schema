@@ -1,0 +1,776 @@
+[
+  {
+    "table_name": "announcements",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('announcements_id_seq'::regclass)"
+  },
+  {
+    "table_name": "announcements",
+    "ordinal_position": 2,
+    "column_name": "title",
+    "data_type": "character varying",
+    "character_maximum_length": 200,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "announcements",
+    "ordinal_position": 3,
+    "column_name": "description",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "announcements",
+    "ordinal_position": 4,
+    "column_name": "created_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "announcements",
+    "ordinal_position": 5,
+    "column_name": "expires_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "badges",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('badges_id_seq'::regclass)"
+  },
+  {
+    "table_name": "badges",
+    "ordinal_position": 2,
+    "column_name": "title",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "badges",
+    "ordinal_position": 3,
+    "column_name": "description",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "badges",
+    "ordinal_position": 4,
+    "column_name": "icon",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "badges",
+    "ordinal_position": 5,
+    "column_name": "color",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "clubs",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('clubs_id_seq'::regclass)"
+  },
+  {
+    "table_name": "clubs",
+    "ordinal_position": 2,
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "clubs",
+    "ordinal_position": 3,
+    "column_name": "description",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "clubs",
+    "ordinal_position": 4,
+    "column_name": "logo",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "clubs",
+    "ordinal_position": 5,
+    "column_name": "theme_color",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('events_id_seq'::regclass)"
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 2,
+    "column_name": "title",
+    "data_type": "character varying",
+    "character_maximum_length": 200,
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 3,
+    "column_name": "description",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 4,
+    "column_name": "club_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 5,
+    "column_name": "venue",
+    "data_type": "character varying",
+    "character_maximum_length": 200,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 6,
+    "column_name": "event_date",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 7,
+    "column_name": "registration_start",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 8,
+    "column_name": "registration_end",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 9,
+    "column_name": "capacity",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 10,
+    "column_name": "year_allowed",
+    "data_type": "character varying",
+    "character_maximum_length": 50,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 11,
+    "column_name": "department_allowed",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 12,
+    "column_name": "first_come_first_serve",
+    "data_type": "boolean",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "true"
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 13,
+    "column_name": "points",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "0"
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 14,
+    "column_name": "banner",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 15,
+    "column_name": "status",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": "'Upcoming'::character varying"
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 16,
+    "column_name": "created_by",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 17,
+    "column_name": "created_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 18,
+    "column_name": "start_time",
+    "data_type": "time without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 19,
+    "column_name": "end_time",
+    "data_type": "time without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "events",
+    "ordinal_position": 20,
+    "column_name": "max_participants",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "100"
+  },
+  {
+    "table_name": "gallery",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('gallery_id_seq'::regclass)"
+  },
+  {
+    "table_name": "gallery",
+    "ordinal_position": 2,
+    "column_name": "title",
+    "data_type": "character varying",
+    "character_maximum_length": 200,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "gallery",
+    "ordinal_position": 3,
+    "column_name": "image",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "gallery",
+    "ordinal_position": 4,
+    "column_name": "event_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "gallery",
+    "ordinal_position": 5,
+    "column_name": "uploaded_by",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "gallery",
+    "ordinal_position": 6,
+    "column_name": "uploaded_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('point_logs_id_seq'::regclass)"
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 2,
+    "column_name": "user_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 3,
+    "column_name": "event_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 4,
+    "column_name": "points",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 5,
+    "column_name": "reason",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 6,
+    "column_name": "added_by",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "point_logs",
+    "ordinal_position": 7,
+    "column_name": "added_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('registrations_id_seq'::regclass)"
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 2,
+    "column_name": "event_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 3,
+    "column_name": "user_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 4,
+    "column_name": "attendance",
+    "data_type": "boolean",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "false"
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 5,
+    "column_name": "registered_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 6,
+    "column_name": "remarks",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 7,
+    "column_name": "status",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": "'Pending'::character varying"
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 8,
+    "column_name": "attended",
+    "data_type": "boolean",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "false"
+  },
+  {
+    "table_name": "registrations",
+    "ordinal_position": 9,
+    "column_name": "points_awarded",
+    "data_type": "boolean",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "false"
+  },
+  {
+    "table_name": "settings",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('settings_id_seq'::regclass)"
+  },
+  {
+    "table_name": "settings",
+    "ordinal_position": 2,
+    "column_name": "website_title",
+    "data_type": "character varying",
+    "character_maximum_length": 150,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "settings",
+    "ordinal_position": 3,
+    "column_name": "membership_fee",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "settings",
+    "ordinal_position": 4,
+    "column_name": "semester",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "settings",
+    "ordinal_position": 5,
+    "column_name": "contact_email",
+    "data_type": "character varying",
+    "character_maximum_length": 150,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "settings",
+    "ordinal_position": 6,
+    "column_name": "homepage_banner",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "user_badges",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('user_badges_id_seq'::regclass)"
+  },
+  {
+    "table_name": "user_badges",
+    "ordinal_position": 2,
+    "column_name": "user_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "user_badges",
+    "ordinal_position": 3,
+    "column_name": "badge_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "user_badges",
+    "ordinal_position": 4,
+    "column_name": "awarded_by",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "user_badges",
+    "ordinal_position": 5,
+    "column_name": "awarded_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 1,
+    "column_name": "id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": "nextval('users_id_seq'::regclass)"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 2,
+    "column_name": "roll_number",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 3,
+    "column_name": "name",
+    "data_type": "character varying",
+    "character_maximum_length": 120,
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 4,
+    "column_name": "email",
+    "data_type": "character varying",
+    "character_maximum_length": 120,
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 5,
+    "column_name": "password",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "NO",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 6,
+    "column_name": "phone",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 7,
+    "column_name": "year",
+    "data_type": "smallint",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 8,
+    "column_name": "department",
+    "data_type": "character varying",
+    "character_maximum_length": 100,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 9,
+    "column_name": "section",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 10,
+    "column_name": "club_id",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 11,
+    "column_name": "profile_photo",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 12,
+    "column_name": "bio",
+    "data_type": "text",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": null
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 13,
+    "column_name": "points",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "0"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 14,
+    "column_name": "level",
+    "data_type": "integer",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "1"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 15,
+    "column_name": "status",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": "'pending'::character varying"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 16,
+    "column_name": "role",
+    "data_type": "character varying",
+    "character_maximum_length": 20,
+    "is_nullable": "YES",
+    "column_default": "'member'::character varying"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 17,
+    "column_name": "joined_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  },
+  {
+    "table_name": "users",
+    "ordinal_position": 18,
+    "column_name": "created_at",
+    "data_type": "timestamp without time zone",
+    "character_maximum_length": null,
+    "is_nullable": "YES",
+    "column_default": "CURRENT_TIMESTAMP"
+  }
+]

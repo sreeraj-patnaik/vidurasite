@@ -3,7 +3,17 @@
 require_once 'config/config.php';
 
 if(isset($_SESSION['user_id'])){
-    header("Location: dashboard.php");
+    if ($user['role'] == 'admin') {
+
+    header("Location: admin/dashboard.php");
+
+} else {
+
+    header("Location: member/dashboard.php");
+
+}
+
+exit;
     exit;
 }
 

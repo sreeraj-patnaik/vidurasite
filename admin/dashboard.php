@@ -222,7 +222,7 @@ Quick Actions
 
 </a>
 
-<a href="students.php" class="btn btn-success">
+<a href="student_add.php" class="btn btn-success">
 
 👥 Add Student
 

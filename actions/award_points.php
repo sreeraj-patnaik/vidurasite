@@ -42,16 +42,28 @@ $pdo->beginTransaction();
 try {
 
     $stmt = $pdo->prepare("
+    SELECT points
+    FROM users
+    WHERE id=?
+    FOR UPDATE
+    ");
+
+    $stmt->execute([$reg['user_id']]);
+    $currentPoints = (int) $stmt->fetchColumn();
+    $newPoints = $currentPoints + (int) $reg['points'];
+    $newLevel = (int) floor($newPoints / 100) + 1;
+
+    $stmt = $pdo->prepare("
     UPDATE users
     SET
-    points = points + ?,
-    level = FLOOR((points + ?) / 100) + 1
+    points = ?,
+    level = ?
     WHERE id=?
     ");
 
     $stmt->execute([
-        $reg['points'],
-        $reg['points'],
+        $newPoints,
+        $newLevel,
         $reg['user_id']
     ]);
 
