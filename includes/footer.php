@@ -21,12 +21,10 @@
                 <h5>Quick Links</h5>
 
                 <ul class="list-unstyled mt-3">
-
                     <li><a href="<?= BASE_URL ?>">Home</a></li>
                     <li><a href="<?= BASE_URL ?>/public/about.php">About</a></li>
                     <li><a href="<?= BASE_URL ?>/public/events.php">Events</a></li>
                     <li><a href="<?= BASE_URL ?>/public/gallery.php">Gallery</a></li>
-
                 </ul>
 
             </div>
@@ -36,11 +34,9 @@
                 <h5>Activity Clubs</h5>
 
                 <ul class="list-unstyled mt-3">
-
                     <li>TechKruti</li>
                     <li>KhelKruti</li>
                     <li>SamsKruti</li>
-
                 </ul>
 
             </div>
@@ -50,13 +46,9 @@
                 <h5>Department</h5>
 
                 <p class="mt-3">
-
                     Computer Science & Systems Engineering
-
                     <br>
-
                     Lendi Institute of Engineering & Technology
-
                 </p>
 
             </div>
@@ -66,9 +58,7 @@
         <hr class="my-4">
 
         <div class="text-center">
-
-            © <?= date('Y') ?> VIDURA Activity Clubs • All Rights Reserved
-
+            &copy; <?= date('Y') ?> VIDURA Activity Clubs. All Rights Reserved
         </div>
 
     </div>

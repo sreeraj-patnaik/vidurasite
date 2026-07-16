@@ -28,6 +28,11 @@ Events
 Registrations
 </a>
 
+<a href="attendance.php">
+<i class="bi bi-patch-check"></i>
+Attendance
+</a>
+
 <a href="points.php">
 <i class="bi bi-star"></i>
 Points

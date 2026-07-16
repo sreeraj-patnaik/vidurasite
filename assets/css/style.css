@@ -781,6 +781,21 @@ small{
     gap:16px;
 }
 
+.podium-row{
+    align-items:end;
+}
+
+.podium-center{
+    transform:translateY(-18px);
+    border-width:2px;
+    box-shadow:0 18px 40px rgba(245, 158, 11, .12), var(--shadow-soft);
+}
+
+.podium-side{
+    transform:translateY(8px);
+    opacity:.98;
+}
+
 .progress-soft{
     height:10px;
     border-radius:999px;
@@ -843,6 +858,11 @@ small{
 @media (max-width: 576px){
     .metric-grid{
         grid-template-columns:1fr;
+    }
+
+    .podium-center,
+    .podium-side{
+        transform:none;
     }
 
     .id-card{

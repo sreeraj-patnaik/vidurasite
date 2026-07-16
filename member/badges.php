@@ -43,7 +43,7 @@ include '../includes/header.php';
 include '../includes/navbar.php';
 ?>
 
-<div class="container py-5">
+<div class="member-shell py-5">
     <div class="dashboard-hero p-4 p-lg-5 mb-4">
         <div class="d-flex flex-column flex-lg-row justify-content-between gap-4 align-items-lg-center">
             <div>
