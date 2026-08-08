@@ -1,21 +1,20 @@
 <?php
 
 require_once 'config/config.php';
+require_once 'config/database.php';
+require_once 'includes/settings_functions.php';
 
 if(isset($_SESSION['user_id'])){
-    if ($user['role'] == 'admin') {
+    if (($_SESSION['role'] ?? '') === 'admin') {
+        header("Location: admin/dashboard.php");
+    } else {
+        header("Location: member/dashboard.php");
+    }
 
-    header("Location: admin/dashboard.php");
-
-} else {
-
-    header("Location: member/dashboard.php");
-
-}
-
-exit;
     exit;
 }
+
+$settings = getSiteSettings($pdo);
 
 include 'includes/header.php';
 include 'includes/navbar.php';

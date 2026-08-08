@@ -7,11 +7,13 @@ require_once 'config/config.php';
 require_once 'config/database.php';
 require_once 'includes/functions.php';
 require_once 'includes/home_functions.php';
+require_once 'includes/settings_functions.php';
 
 $totalMembers = totalMembers($pdo);
 $totalEvents = totalEvents($pdo);
 $totalClubs = totalClubs($pdo);
 $totalRegistrations = totalRegistrations($pdo);
+$settings = getSiteSettings($pdo);
 
 include 'includes/header.php';
 include 'includes/navbar.php';
@@ -71,7 +73,7 @@ include 'includes/navbar.php';
 
             <div class="col-lg-6 text-center fade-up">
 
-                <img src="assets/images/hero.png"
+                <img src="<?= htmlspecialchars(settingsImageUrl($settings, 'homepage_banner', 'assets/images/hero.png')) ?>"
                     class="img-fluid"
                     style="max-height:520px;"
                     alt="VIDURA Hero">
@@ -159,11 +161,11 @@ include 'includes/navbar.php';
 
         <div class="row g-4">
 
-            <div class="col-lg-4">
+                <div class="col-lg-4">
 
-                <div class="card-custom text-center">
+                    <div class="card-custom text-center">
 
-                    <img src="assets/images/techkruti.png"
+                    <img src="<?= htmlspecialchars(settingsImageUrl($settings, 'techkruti_image', 'assets/images/techkruti.png')) ?>"
                         height="90"
                         class="mx-auto mb-4"
                         alt="TechKruti">
@@ -182,11 +184,11 @@ include 'includes/navbar.php';
 
             </div>
 
-            <div class="col-lg-4">
+                <div class="col-lg-4">
 
-                <div class="card-custom text-center">
+                    <div class="card-custom text-center">
 
-                    <img src="assets/images/khelkruti.png"
+                    <img src="<?= htmlspecialchars(settingsImageUrl($settings, 'khelkruti_image', 'assets/images/khelkruti.png')) ?>"
                         height="90"
                         class="mx-auto mb-4"
                         alt="KhelKruti">
@@ -205,11 +207,11 @@ include 'includes/navbar.php';
 
             </div>
 
-            <div class="col-lg-4">
+                <div class="col-lg-4">
 
-                <div class="card-custom text-center">
+                    <div class="card-custom text-center">
 
-                    <img src="assets/images/samskruti.png"
+                    <img src="<?= htmlspecialchars(settingsImageUrl($settings, 'samskruti_image', 'assets/images/samskruti.png')) ?>"
                         height="90"
                         class="mx-auto mb-4"
                         alt="SamsKruti">

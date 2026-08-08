@@ -327,7 +327,17 @@ semester VARCHAR(20),
 
 contact_email VARCHAR(150),
 
-homepage_banner TEXT
+homepage_banner TEXT,
+
+techkruti_image TEXT,
+
+khelkruti_image TEXT,
+
+samskruti_image TEXT,
+
+liet_logo TEXT,
+
+vidura_logo TEXT
 
 );
 

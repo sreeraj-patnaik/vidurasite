@@ -2,18 +2,14 @@
 
 require_once '../config/config.php';
 require_once '../config/database.php';
+require_once '../includes/settings_functions.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit;
 }
 
-$settings = $pdo->query("
-SELECT *
-FROM settings
-ORDER BY id ASC
-LIMIT 1
-")->fetch();
+$settings = getSiteSettings($pdo);
 
 include 'partials/header.php';
 include 'partials/sidebar.php';
@@ -26,48 +22,92 @@ include 'partials/sidebar.php';
     <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
         <div>
             <h2>Settings</h2>
-            <p class="text-muted mb-0">Current platform configuration and system details.</p>
+            <p class="text-muted mb-0">Update platform details and replace the homepage/logo images.</p>
         </div>
-        <a href="reports.php" class="btn btn-primary">
-            <i class="bi bi-graph-up me-1"></i> Reports
-        </a>
     </div>
 
-    <div class="row g-4">
-        <div class="col-lg-7">
-            <div class="card-admin h-100">
-                <h5 class="mb-3">Platform Settings</h5>
-                <?php if ($settings): ?>
-                    <div class="table-responsive">
-                        <table class="table table-striped align-middle mb-0">
-                            <tbody>
-                                <tr><th width="240">Website Title</th><td><?= htmlspecialchars($settings['website_title'] ?? '-') ?></td></tr>
-                                <tr><th>Membership Fee</th><td><?= htmlspecialchars($settings['membership_fee'] ?? '-') ?></td></tr>
-                                <tr><th>Semester</th><td><?= htmlspecialchars($settings['semester'] ?? '-') ?></td></tr>
-                                <tr><th>Contact Email</th><td><?= htmlspecialchars($settings['contact_email'] ?? '-') ?></td></tr>
-                                <tr><th>Homepage Banner</th><td><?= htmlspecialchars($settings['homepage_banner'] ?? '-') ?></td></tr>
-                            </tbody>
-                        </table>
+    <?php if (!empty($_SESSION['success'])): ?>
+        <div class="alert alert-success"><?= htmlspecialchars($_SESSION['success']) ?></div>
+        <?php unset($_SESSION['success']); ?>
+    <?php endif; ?>
+
+    <?php if (!empty($_SESSION['error'])): ?>
+        <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['error']) ?></div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+
+    <form action="../actions/settings_save.php" method="POST" enctype="multipart/form-data">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="card-admin h-100">
+                    <h5 class="mb-3">Platform Details</h5>
+
+                    <div class="mb-3">
+                        <label class="form-label">Website Title</label>
+                        <input type="text" name="website_title" class="form-control" value="<?= htmlspecialchars($settings['website_title'] ?? '') ?>">
                     </div>
-                <?php else: ?>
-                    <div class="alert alert-info mb-0">No settings record exists yet.</div>
-                <?php endif; ?>
-            </div>
-        </div>
 
-        <div class="col-lg-5">
-            <div class="card-admin h-100">
-                <h5 class="mb-3">System Info</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between px-0"><span>Server</span><strong><?= htmlspecialchars($_SERVER['SERVER_SOFTWARE'] ?? 'Unknown') ?></strong></li>
-                    <li class="list-group-item d-flex justify-content-between px-0"><span>PHP Version</span><strong><?= htmlspecialchars(PHP_VERSION) ?></strong></li>
-                    <li class="list-group-item d-flex justify-content-between px-0"><span>Timezone</span><strong><?= htmlspecialchars(date_default_timezone_get()) ?></strong></li>
-                    <li class="list-group-item d-flex justify-content-between px-0"><span>Current User</span><strong><?= htmlspecialchars($_SESSION['name']) ?></strong></li>
-                    <li class="list-group-item d-flex justify-content-between px-0"><span>Role</span><strong>Admin</strong></li>
-                </ul>
+                    <div class="mb-3">
+                        <label class="form-label">Membership Fee</label>
+                        <input type="number" name="membership_fee" class="form-control" value="<?= htmlspecialchars($settings['membership_fee'] ?? '') ?>">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Semester</label>
+                        <input type="text" name="semester" class="form-control" value="<?= htmlspecialchars($settings['semester'] ?? '') ?>">
+                    </div>
+
+                    <div class="mb-0">
+                        <label class="form-label">Contact Email</label>
+                        <input type="email" name="contact_email" class="form-control" value="<?= htmlspecialchars($settings['contact_email'] ?? '') ?>">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card-admin h-100">
+                    <h5 class="mb-3">Upload Images</h5>
+                    <p class="text-muted small mb-4">Leave a file empty to keep the current image.</p>
+
+                    <div class="row g-3">
+                        <?php
+                        $imageFields = [
+                            'homepage_banner' => ['Homepage Banner', 'assets/images/hero.png'],
+                            'techkruti_image' => ['TechKruti Image', 'assets/images/techkruti.png'],
+                            'khelkruti_image' => ['KhelKruti Image', 'assets/images/khelkruti.png'],
+                            'samskruti_image' => ['SamsKruti Image', 'assets/images/samskruti.png'],
+                            'liet_logo' => ['LIET Logo', 'assets/images/liet_logo.png'],
+                            'vidura_logo' => ['VIDURA Logo', 'assets/images/vidura_logo.png'],
+                        ];
+                        ?>
+
+                        <?php foreach ($imageFields as $field => [$label, $fallback]): ?>
+                            <div class="col-md-6">
+                                <label class="form-label"><?= htmlspecialchars($label) ?></label>
+                                <div class="border rounded-3 p-3 h-100 bg-light">
+                                    <div class="mb-3 text-center">
+                                        <img
+                                            src="<?= htmlspecialchars(settingsImageUrl($settings, $field, $fallback)) ?>"
+                                            alt="<?= htmlspecialchars($label) ?>"
+                                            class="img-fluid rounded"
+                                            style="max-height: 140px; object-fit: contain;">
+                                    </div>
+                                    <input type="file" name="<?= htmlspecialchars($field) ?>" class="form-control" accept="image/*">
+                                    <small class="text-muted d-block mt-2">Recommended for <?= htmlspecialchars($label) ?>.</small>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save me-1"></i> Save Settings
+                </button>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 </div>
 

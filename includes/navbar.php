@@ -1,10 +1,17 @@
+<?php
+
+require_once __DIR__ . '/settings_functions.php';
+
+$siteSettings = $settings ?? [];
+?>
+
 <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
 
     <div class="container">
 
         <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>">
-            <img src="<?= BASE_URL ?>/assets/images/liet_logo.png" alt="LIET" height="45" class="me-3">
-            <img src="<?= BASE_URL ?>/assets/images/vidura_logo.png" alt="VIDURA" height="45">
+            <img src="<?= htmlspecialchars(settingsImageUrl($siteSettings, 'liet_logo', 'assets/images/liet_logo.png')) ?>" alt="LIET" height="45" class="me-3">
+            <img src="<?= htmlspecialchars(settingsImageUrl($siteSettings, 'vidura_logo', 'assets/images/vidura_logo.png')) ?>" alt="VIDURA" height="45">
         </a>
 
         <button class="navbar-toggler"
