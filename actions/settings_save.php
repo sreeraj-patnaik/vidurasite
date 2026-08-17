@@ -22,7 +22,33 @@ $data = [
     'membership_fee' => !empty($_POST['membership_fee']) ? (int) $_POST['membership_fee'] : null,
     'semester' => trim($_POST['semester'] ?? ''),
     'contact_email' => trim($_POST['contact_email'] ?? ''),
+    'patron_name' => trim($_POST['patron_name'] ?? ''),
+    'faculty_coordinator_name' => trim($_POST['faculty_coordinator_name'] ?? ''),
+    'student_president_user_id' => null,
+    'finance_secretary_user_id' => null,
 ];
+
+$resolveStudentId = function (string $field) use ($pdo): ?int {
+    $studentId = (int) ($_POST[$field] ?? 0);
+
+    if ($studentId <= 0) {
+        return null;
+    }
+
+    $stmt = $pdo->prepare("
+        SELECT id
+        FROM users
+        WHERE id = ?
+          AND role = 'member'
+        LIMIT 1
+    ");
+    $stmt->execute([$studentId]);
+
+    return $stmt->fetchColumn() ? $studentId : null;
+};
+
+$data['student_president_user_id'] = $resolveStudentId('student_president_user_id');
+$data['finance_secretary_user_id'] = $resolveStudentId('finance_secretary_user_id');
 
 $imageFields = [
     'homepage_banner' => 'assets/images/hero.png',
@@ -31,6 +57,7 @@ $imageFields = [
     'samskruti_image' => 'assets/images/samskruti.png',
     'liet_logo' => 'assets/images/liet_logo.png',
     'vidura_logo' => 'assets/images/vidura_logo.png',
+    'patron_photo' => 'assets/images/team-avatar.svg',
 ];
 
 $uploadDir = '../uploads/settings/';
@@ -75,6 +102,10 @@ $stmt = $pdo->prepare("
         membership_fee = ?,
         semester = ?,
         contact_email = ?,
+        patron_name = ?,
+        faculty_coordinator_name = ?,
+        student_president_user_id = ?,
+        finance_secretary_user_id = ?,
         homepage_banner = ?,
         techkruti_image = ?,
         khelkruti_image = ?,
@@ -89,6 +120,10 @@ $stmt->execute([
     $data['membership_fee'],
     $data['semester'],
     $data['contact_email'],
+    $data['patron_name'],
+    $data['faculty_coordinator_name'],
+    $data['student_president_user_id'],
+    $data['finance_secretary_user_id'],
     $data['homepage_banner'],
     $data['techkruti_image'],
     $data['khelkruti_image'],

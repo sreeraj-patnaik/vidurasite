@@ -25,6 +25,10 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 
 <link rel="stylesheet" href="assets/admin.css">
 
+<?php if (!empty($extraHead)): ?>
+<?= $extraHead ?>
+<?php endif; ?>
+
 </head>
 
 <body>

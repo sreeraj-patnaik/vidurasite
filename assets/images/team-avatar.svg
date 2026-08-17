@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Team Avatar</title>
+  <desc id="desc">Generic avatar icon for organizing team members</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="128" fill="url(#g)"/>
+  <circle cx="128" cy="102" r="42" fill="#fff" opacity=".96"/>
+  <path d="M60 218c12-38 40-58 68-58s56 20 68 58" fill="#fff" opacity=".96"/>
+</svg>

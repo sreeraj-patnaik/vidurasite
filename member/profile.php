@@ -2,6 +2,7 @@
 
 require_once '../config/config.php';
 require_once '../config/database.php';
+require_once '../includes/settings_functions.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php");
@@ -26,6 +27,8 @@ $user = $stmt->fetch();
 if (!$user) {
     die("User not found.");
 }
+
+$teamRoles = getOrganizingTeamRoleLabels($pdo, $userId);
 
 include '../includes/header.php';
 include '../includes/navbar.php';
@@ -85,6 +88,13 @@ include '../includes/navbar.php';
                     <h3 class="mb-1"><?= htmlspecialchars($user['name']) ?></h3>
                     <p class="text-muted mb-3"><?= htmlspecialchars($user['club_name'] ?? 'No Club') ?></p>
                     <div class="badge badge-soft mb-3"><?= htmlspecialchars($user['roll_number']) ?></div>
+                    <?php if (!empty($teamRoles)): ?>
+                        <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+                            <?php foreach ($teamRoles as $roleLabel): ?>
+                                <span class="badge bg-primary-subtle text-primary border"><?= htmlspecialchars($roleLabel) ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="row g-3">

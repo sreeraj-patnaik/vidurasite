@@ -2,6 +2,7 @@
 
 require_once '../config/config.php';
 require_once '../config/database.php';
+require_once '../includes/settings_functions.php';
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     header("Location: ../login.php");
@@ -42,6 +43,8 @@ $student = $stmt->fetch();
 if (!$student) {
     die("Student not found.");
 }
+
+$teamRoles = getOrganizingTeamRoleLabels($pdo, $id);
 
 /* =====================================
    BADGES
@@ -250,6 +253,14 @@ color:white;">
 <?= htmlspecialchars($student['roll_number']) ?>
 
 </p>
+
+<?php if (!empty($teamRoles)): ?>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+        <?php foreach ($teamRoles as $roleLabel): ?>
+            <span class="badge bg-primary-subtle text-primary border"><?= htmlspecialchars($roleLabel) ?></span>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 
 <span class="badge bg-primary fs-6">
 

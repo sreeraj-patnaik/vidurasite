@@ -18,6 +18,11 @@ Dashboard
 Students
 </a>
 
+<a href="bulk_tools.php">
+<i class="bi bi-layers"></i>
+Bulk Tools
+</a>
+
 <a href="events.php">
 <i class="bi bi-calendar-event"></i>
 Events
@@ -61,6 +66,11 @@ Reports
 <a href="settings.php">
 <i class="bi bi-gear"></i>
 Settings
+</a>
+
+<a href="organizing_team.php">
+<i class="bi bi-diagram-3"></i>
+Organizing Team
 </a>
 
 <a href="../logout.php">

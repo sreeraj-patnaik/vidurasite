@@ -69,6 +69,13 @@ $siteSettings = $settings ?? [];
                 <li class="nav-item">
                     <a class="nav-link" href="<?= BASE_URL ?>/public/leaderboard.php">Leaderboard</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASE_URL ?>/public/sih.php">SIH-2026</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= BASE_URL ?>/public/organizing_team.php">Organizing Team</a>
+                </li>
 
             </ul>
 
